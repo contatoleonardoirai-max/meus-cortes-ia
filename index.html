@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sofista do Algoritmo — Meus Cortes IA</title>
+
+    <meta
+      name="description"
+      content="Transforme vídeos longos em cortes virais otimizados para Shorts, Reels e TikTok."
+    />
+    <meta name="author" content="Sofista do Algoritmo" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <p class="badge">MVP • Meus Cortes IA</p>
+        <h1>Sofista do Algoritmo</h1>
+        <p class="subtitle">
+          Gere cortes curtos prontos para Shorts, Reels e TikTok.
+          Agora você pode usar <strong>link</strong> ou
+          <strong>upload de vídeo</strong>.
+        </p>
+      </header>
+
+      <main class="app-main">
+        <section class="card">
+          <h2 class="card-title">Gerar cortes</h2>
+          <p class="card-subtitle">
+            Escolha se quer usar um link (YouTube, etc.) ou enviar um vídeo do
+            seu computador.
+          </p>
+
+          <form id="clip-form">
+            <div class="mode-toggle">
+              <label>
+                <input
+                  type="radio"
+                  name="mode"
+                  value="url"
+                  checked
+                />
+                Por link
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="mode"
+                  value="upload"
+                />
+                Por upload
+              </label>
+            </div>
+
+            <div id="url-fields">
+              <label class="field">
+                <span>Link do vídeo</span>
+                <input
+                  type="url"
+                  id="videoUrl"
+                  placeholder="https://youtube.com/..."
+                />
+              </label>
+            </div>
+
+            <div id="upload-fields" style="display: none">
+              <label class="field">
+                <span>Arquivo de vídeo</span>
+                <input
+                  type="file"
+                  id="videoFile"
+                  accept="video/*"
+                />
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Qtd. de cortes (máx. 20)</span>
+                <input
+                  type="number"
+                  id="clipsCount"
+                  min="1"
+                  max="20"
+                  value="3"
+                  required
+                />
+              </label>
+
+              <label class="field">
+                <span>Duração máx. por corte (segundos)</span>
+                <input
+                  type="number"
+                  id="maxDuration"
+                  min="5"
+                  max="180"
+                  value="30"
+                  required
+                />
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Plataforma alvo</span>
+              <select id="platform">
+                <option value="shorts">YouTube Shorts</option>
+                <option value="tiktok">TikTok</option>
+                <option value="reels">Instagram Reels</option>
+              </select>
+            </label>
+
+            <p id="error" class="error-text hidden"></p>
+
+            <button type="submit" class="btn-primary">
+              Gerar cortes reais
+            </button>
+          </form>
+        </section>
+
+        <section class="card" id="result-card" style="display: none">
+          <h2 class="card-title">Cortes gerados</h2>
+          <p class="card-subtitle">
+            Estes arquivos são cortes REAIS em MP4 gerados pelo backend Python.
+          </p>
+
+          <div id="clips-container" class="clip-grid"></div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <small>
+          MVP em HTML, CSS, JS + Python (FastAPI, yt-dlp, moviepy, ffmpeg).
+          Suporte a link e upload.
+        </small>
+      </footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

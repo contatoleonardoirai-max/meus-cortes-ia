@@ -1,0 +1,14 @@
+# Python venv
+venv/
+backend/venv/
+
+# Arquivos Python gerados
+__pycache__/
+*.pyc
+
+# Vídeos baixados e cortes gerados
+backend/downloads/
+backend/clips/
+
+# Config locais do VS Code
+.vscode/
