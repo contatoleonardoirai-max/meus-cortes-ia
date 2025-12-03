@@ -356,6 +356,7 @@ async def generate_clips_from_upload(
 
 
 if __name__ == "__main__":
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
 # backend: main.py
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
@@ -716,4 +717,6 @@ async def generate_clips_from_upload(
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0",port=8000,reload=True )
 
